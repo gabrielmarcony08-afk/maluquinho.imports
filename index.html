@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MALUQUINHO IMPORTS | Loja Oficial Streetwear & Importados</title>
+  <meta name="description" content="Maluquinho Imports - A sua loja oficial de roupas, tênis, conjuntos e acessórios importados com parcelamento em até 3x sem juros e atendimento via WhatsApp!">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar (Ochre / Gold) -->
+  <div class="top-announcement-bar">
+    <span>PARCELE EM ATÉ 3X SEM JUROS ! | FRETE GRÁTIS EM COMPRAS ACIMA DE R$ 299</span>
+  </div>
+
+  <!-- Main Header (Black & Gold) -->
+  <header class="main-header" id="main-header">
+    <div class="container header-content">
+      
+      <!-- Left: Search Box -->
+      <div class="header-search">
+        <input type="text" id="search-input" placeholder="O que deseja procurar?" autocomplete="off">
+        <button id="search-btn" aria-label="Procurar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+
+      <!-- Center: Official Maluquinho Imports Logo -->
+      <a href="#" class="header-logo-container" id="logo-trigger" title="Maluquinho Imports Loja Oficial">
+        <img src="/images/logo.png" alt="Maluquinho Imports Logo Oficial" class="header-logo-img">
+      </a>
+
+      <!-- Right: User Actions -->
+      <div class="header-right-actions">
+        
+        <!-- Admin Bar Controls (Visible when Logged In) -->
+        <div id="admin-header-controls" class="admin-controls-box" style="display: none;">
+          <button id="btn-add-product" class="btn-admin-add">+ Novo Produto</button>
+          <button id="btn-admin-logout" class="btn-admin-logout" title="Sair do Modo Administrador">⚙️ Sair Admin</button>
+        </div>
+
+        <!-- Theme Toggle Button (Light/Dark Mode) -->
+        <button id="theme-toggle-btn" class="action-item theme-btn" aria-label="Alternar Tema" title="Alternar Modo Claro / Escuro">
+          <div class="action-icon theme-icon-box">
+            <!-- Sun Icon for Light Mode -->
+            <svg id="theme-icon-sun" class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <!-- Moon Icon for Dark Mode -->
+            <svg id="theme-icon-moon" class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <div class="action-text desktop-only">
+            <span class="action-label">Modo</span>
+            <span class="action-value" id="theme-text-value">Escuro</span>
+          </div>
+        </button>
+
+        <!-- Help / WhatsApp Link -->
+        <a href="https://wa.me/5565992801549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Maluquinho%20Imports%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos." 
+           target="_blank" rel="noopener noreferrer" class="action-item">
+          <div class="action-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div class="action-text">
+            <span class="action-label">Precisa de Ajuda?</span>
+            <span class="action-value">Atendimento</span>
+          </div>
+        </a>
+
+        <!-- Cart Button -->
+        <button id="cart-toggle-btn" class="action-item cart-btn-item" aria-label="Carrinho de Compras">
+          <div class="action-icon cart-icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span class="cart-badge-number" id="cart-badge">0</span>
+          </div>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Category Sub-Header Navigation Bar -->
+    <nav class="nav-bar">
+      <div class="container nav-container">
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item nav-categories-dropdown" data-category="all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <span>Categorias</span>
+          </li>
+          <li class="nav-item" data-category="camisas">Camisas</li>
+          <li class="nav-item" data-category="bermudas">Bermudas</li>
+          <li class="nav-item" data-category="tenis">Tênis</li>
+          <li class="nav-item" data-category="calcas">Calças</li>
+          <li class="nav-item" data-category="bones">Bonés</li>
+          <li class="nav-item" data-category="acessorios">Acessórios</li>
+          <li class="nav-item" data-category="conjuntos">Conjuntos</li>
+          <li class="nav-item" data-category="inverno">Inverno</li>
+          <li class="nav-item" data-category="perfumes">Perfumes</li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner-section">
+    <div class="hero-slider-container">
+      
+      <!-- Slider Navigation Arrows -->
+      <button class="slider-arrow prev-arrow" id="slide-prev" aria-label="Anterior">&lt;</button>
+      <button class="slider-arrow next-arrow" id="slide-next" aria-label="Próximo">&gt;</button>
+
+      <!-- Banner Slide 1 -->
+      <div class="hero-slide active">
+        <div class="slide-left-dark">
+          <div class="hero-logo-box">
+            <img src="/images/logo.png" alt="Maluquinho Imports" class="hero-logo-img">
+          </div>
+        </div>
+
+        <div class="slide-right-light">
+          <div class="ripped-paper-edge"></div>
+          <div class="hero-promo-content">
+            <h1 class="promo-gold-title">PARCELE</h1>
+            <h2 class="promo-black-box">EM ATÉ 3X SEM JUROS</h2>
+            <p class="promo-subtitle">PAGAMENTOS RÁPIDOS E SEGUROS</p>
+            
+            <div class="payment-icons-row">
+              <span class="pay-tag visa">VISA</span>
+              <span class="pay-tag mastercard">MasterCard</span>
+              <span class="pay-tag elo">elo</span>
+              <span class="pay-tag pix">pix</span>
+            </div>
+
+            <div class="hero-cta-btn-wrap">
+              <a href="https://wa.me/5565992801549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Maluquinho%20Imports%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos." 
+                 target="_blank" rel="noopener noreferrer" class="btn btn-gold-wa">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                COMPRAR PELO WHATSAPP
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog Section -->
+  <section class="products-section container" id="produtos">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">PRODUTOS EM DESTAQUE</h2>
+        <div class="title-underline"></div>
+      </div>
+
+      <!-- Quick Filter Buttons -->
+      <div class="filter-controls" id="filter-controls">
+        <button class="filter-btn active" data-category="all">Todos</button>
+        <button class="filter-btn" data-category="camisas">Camisas</button>
+        <button class="filter-btn" data-category="tenis">Tênis</button>
+        <button class="filter-btn" data-category="acessorios">Acessórios</button>
+        <button class="filter-btn" data-category="inverno">Inverno</button>
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-grid" id="products-grid">
+      <!-- Generated via JS -->
+    </div>
+  </section>
+
+  <!-- Features & Guarantee Bar -->
+  <section class="features-bar">
+    <div class="container features-grid">
+      <div class="feature-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div>
+          <h4>ENVIO PARA TODO O BRASIL</h4>
+          <p>Entrega rápida com código de rastreio</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        <div>
+          <h4>PARCELAMENTO EM ATÉ 3X</h4>
+          <p>Sem juros nos cartões de crédito</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <div>
+          <h4>ATENDIMENTO WHATSAPP</h4>
+          <p>(65) 99280-1549 Suporte humanizado</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Dark & Gold) -->
+  <footer class="main-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <!-- SECRET ADMIN LOGIN TRIGGER ATTACHED TO THE BOTTOM FOOTER LOGO -->
+        <div class="footer-logo-box" id="footer-logo-trigger" title="Maluquinho Imports" style="cursor: pointer;">
+          <img src="/images/logo.png" alt="Maluquinho Imports" class="footer-logo-img">
+        </div>
+        <p>A loja referência em peças streetwear importadas, tênis exclusivos e acessórios de altíssimo padrão.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Categorias</h4>
+        <ul>
+          <li><a href="#produtos" class="cat-link" data-cat="camisas">Camisas</a></li>
+          <li><a href="#produtos" class="cat-link" data-cat="tenis">Tênis</a></li>
+          <li><a href="#produtos" class="cat-link" data-cat="acessorios">Acessórios</a></li>
+          <li><a href="#produtos" class="cat-link" data-cat="inverno">Inverno</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Atendimento</h4>
+        <p>Atendimento rápido via WhatsApp:</p>
+        <a href="https://wa.me/5565992801549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Maluquinho%20Imports%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos." 
+           target="_blank" rel="noopener noreferrer" class="footer-wa-btn">
+           +55 65 99280-1549
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <p>&copy; 2026 MALUQUINHO IMPORTS. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Product Modal -->
+  <div class="modal-backdrop" id="product-modal-backdrop">
+    <div class="modal-card" id="product-modal">
+      <button class="modal-close" id="modal-close-btn">&times;</button>
+      <div class="modal-grid">
+        <div class="modal-media">
+          <img id="modal-image" src="" alt="Produto">
+        </div>
+        <div class="modal-details">
+          <span class="product-category-tag" id="modal-category">Categoria</span>
+          <h2 class="modal-title" id="modal-title">Nome do Produto</h2>
+          <div class="modal-price-box">
+            <span class="modal-price" id="modal-price">R$ 0,00</span>
+            <span class="modal-old-price" id="modal-old-price"></span>
+            <span class="modal-installments">em até 3x sem juros</span>
+          </div>
+
+          <p class="modal-description" id="modal-description">Descrição do produto...</p>
+
+          <div class="modal-options">
+            <div class="option-group">
+              <label class="option-label">Tamanho / Opção:</label>
+              <div class="size-selector" id="modal-sizes"></div>
+            </div>
+
+            <div class="option-group">
+              <label class="option-label">Quantidade:</label>
+              <div class="qty-selector">
+                <button id="qty-minus">-</button>
+                <span id="qty-val">1</span>
+                <button id="qty-plus">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <!-- COMPRAR PELO WHATSAPP BUTTON -->
+            <a id="modal-wa-buy-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              COMPRAR PELO WHATSAPP
+            </a>
+
+            <button id="modal-add-cart-btn" class="btn btn-gold btn-block">
+              Adicionar ao Carrinho
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-backdrop" id="cart-backdrop">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3>Seu Carrinho (<span id="cart-total-count">0</span>)</h3>
+        <button class="cart-close" id="cart-close-btn">&times;</button>
+      </div>
+      <div class="cart-items" id="cart-items-container"></div>
+      <div class="cart-footer">
+        <div class="cart-summary-row">
+          <span>Subtotal:</span>
+          <span class="cart-total-price" id="cart-subtotal">R$ 0,00</span>
+        </div>
+        <a id="cart-wa-checkout-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-block">
+          Finalizar Pedido no WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON (BOTÃO FLUTUANTE) -->
+  <a href="https://wa.me/5565992801549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Maluquinho%20Imports%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos." 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="whatsapp-float-btn" 
+     id="whatsapp-float" 
+     aria-label="Atendimento via WhatsApp">
+     <div class="whatsapp-float-tooltip">
+       <span class="status-dot"></span>
+       <span>Atendimento Online</span>
+     </div>
+     <div class="whatsapp-icon-wrapper">
+       <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+     </div>
+  </a>
+
+  <!-- SECRET ADMIN LOGIN MODAL -->
+  <div class="modal-backdrop" id="admin-login-backdrop">
+    <div class="modal-card admin-login-card">
+      <button class="modal-close" id="admin-login-close">&times;</button>
+      <div class="admin-login-header">
+        <span class="admin-lock-icon">🔒</span>
+        <h2>Área Restrita do Gerente</h2>
+        <p>Insira a senha de administrador para editar, adicionar ou excluir produtos do site.</p>
+      </div>
+
+      <form id="admin-login-form" class="admin-form">
+        <div class="form-group">
+          <label for="admin-password-input">Senha de Acesso:</label>
+          <input type="password" id="admin-password-input" placeholder="Digite a senha..." required autocomplete="current-password">
+        </div>
+        <p id="admin-login-error" class="form-error-msg" style="display:none; color:#ff4757; font-size:0.85rem; font-weight:700; margin-bottom:12px;"></p>
+        <button type="submit" class="btn btn-gold btn-block">Acessar Painel de Edição</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN ADD / EDIT PRODUCT FORM MODAL -->
+  <div class="modal-backdrop" id="admin-product-backdrop">
+    <div class="modal-card admin-product-card">
+      <button class="modal-close" id="admin-product-close">&times;</button>
+      <h2 id="admin-product-modal-title" class="modal-title" style="color:var(--gold-primary); margin-bottom:20px;">Gerenciar Produto</h2>
+
+      <form id="admin-product-form" class="admin-form">
+        <input type="hidden" id="edit-product-id">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prod-name">Nome do Produto:</label>
+            <input type="text" id="prod-name" required placeholder="Ex: Tênis Nike Streetwear Pro">
+          </div>
+          <div class="form-group">
+            <label for="prod-category">Categoria:</label>
+            <select id="prod-category" required>
+              <option value="camisas">Camisas</option>
+              <option value="bermudas">Bermudas</option>
+              <option value="tenis">Tênis</option>
+              <option value="calcas">Calças</option>
+              <option value="bones">Bonés</option>
+              <option value="acessorios">Acessórios</option>
+              <option value="conjuntos">Conjuntos</option>
+              <option value="inverno">Inverno</option>
+              <option value="perfumes">Perfumes</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prod-price">Preço Atual (R$):</label>
+            <input type="number" step="0.01" id="prod-price" required placeholder="199.90">
+          </div>
+          <div class="form-group">
+            <label for="prod-old-price">Preço Antigo (R$) (Opcional):</label>
+            <input type="number" step="0.01" id="prod-old-price" placeholder="299.90">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prod-badge">Selo / Badge:</label>
+            <input type="text" id="prod-badge" placeholder="Ex: NOVIDADE, MAIS VENDIDO, PROMOÇÃO">
+          </div>
+          <div class="form-group">
+            <label for="prod-sizes">Tamanhos (separados por vírgula):</label>
+            <input type="text" id="prod-sizes" placeholder="Ex: P, M, G, GG ou 38, 39, 40">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="prod-image">Caminho / URL da Foto:</label>
+          <input type="text" id="prod-image" required placeholder="Ex: /images/logo.png ou /images/product_watch.jpg">
+          <small style="color:var(--text-gray); font-size:0.75rem; display:block; margin-top:4px;">As fotos salvas na pasta <code>public/images/</code> podem ser referenciadas como <code>/images/nome_da_foto.jpg</code>.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="prod-description">Descrição do Produto:</label>
+          <textarea id="prod-description" rows="3" required placeholder="Escreva os detalhes, tecido, especificações do produto..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-block" style="margin-top:10px;">Salvar Produto</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
